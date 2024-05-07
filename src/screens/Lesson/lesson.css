@@ -1,0 +1,100 @@
+.lesson_content{
+    flex: 1;
+}
+.lesson_content .content .lh1{
+    color: var(--orange);
+
+}
+.lesson_content .content .lps {
+    font-size: 18px;
+    padding: 5px;
+}
+.lesson_content .content .lcmd {
+    position: relative;
+}
+.lesson_content .content b {
+    color: var(--orange);
+}
+.lesson_content .content .lcmd::after{
+    position: absolute;
+    content: "";
+    background-color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    z-index: -1;
+}
+.lesson_content .content .lcmd::before{
+    position: absolute;
+    content: "";
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    border-radius: 10px;
+    z-index: -1;
+
+}
+.lesson_content .content .lcmd p{
+    position: relative;
+    padding: 5px 15px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+
+}
+
+
+.lesson_content .content ol,.lesson_content .content ul {
+    list-style: none;
+    margin-left: 30px;  
+}
+.lesson_content .content ol li, .lesson_content .content ul li{
+    letter-spacing: 1.5px;
+    position: relative;
+}
+.lesson_content .content ol li::before,.lesson_content .content ul li::before {
+    position: absolute;
+    content: "-";
+    left: -20px;
+    color: var(--orange);
+    font-weight: 600;
+}
+
+
+
+.lesson_next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson_next button {
+    border: none;
+    outline: none;
+    background: none;
+
+    background-color: var(--orange);
+    border: 1px solid var(--orange);
+
+    border-radius: 2px;
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 0px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    transition:  .156s linear;
+}
+
+.lesson_next button:hover{
+    background: none;
+    color: var(--orange);
+}
+
+.lesson_next button:active{
+    background-color: var(--orange);
+    color: #ffffff;
+}
