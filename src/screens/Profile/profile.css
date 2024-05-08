@@ -41,6 +41,10 @@
     font-weight: 900;
     letter-spacing: 1px;
 }
+.name_edit_icon {
+    font-size: 20px;
+    color: black;
+}
 .profile_header p{
     z-index: 1;
 

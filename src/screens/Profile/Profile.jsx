@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import "./profile.css"
+import { MdEdit } from "react-icons/md";
 import { Helmet } from 'react-helmet'
 import axios from "axios"
+import NameEditBlock from '../../components/ProfileNameEdit/NameEditBlock';
+
 
 const Profile = ({port}) => {
     const [progress, setProgress] = useState(10)
     const [localStoreUserId, setLocalStoreUserId] = useState(localStorage.getItem("LEARN_GGKIT_USER_ID"))
     const [userProfile, setUserProfile] = useState([])
-    useEffect(() => {
 
+    const [editName, setNameEdit ] = useState(false)
+
+    useEffect(() => {
         GetProfile()
     }, [])
 
@@ -27,6 +32,7 @@ const Profile = ({port}) => {
     return (
 
         <main className="main profile">
+            {editName ? <NameEditBlock editName={editName} setNameEdit={setNameEdit}/> : console.log(editName)}
 
             <Helmet>
                 <title>Профиль</title>
@@ -45,7 +51,7 @@ const Profile = ({port}) => {
                         className="profile_header_avatar">
                             
                         </div>
-                        <h2>{el.full_name}</h2>
+                        <h2>{el.full_name} <MdEdit onClick={()=>{setNameEdit(true)}}  className='name_edit_icon'/></h2>
                         <p>{el.description}</p>
                     </div>
                     <div className="profile_body">
