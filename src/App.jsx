@@ -9,14 +9,14 @@ import Footer from './components/footer/Footer'
 import OpenCourse from './screens/OpenCours/OpenCourse'
 import Lesson from './screens/Lesson/Lesson'
 import Profile from './screens/Profile/Profile'
-
-const PORT = "127.0.0.1:8080"
-
+import LiderBord from './screens/Rating/LiderBord'
+import Admin from './screens/Admin/Admin'
+import Doc from './screens/Doc/Doc'
+const PORT = "172.20.10.2:8080"
 function App() {
   const location = useLocation()
   const [isLogin,setIsLogIn] = useState(false)
   const [isMobile,setIsMobile] = useState(false)
-
   useEffect(()=>{
     setIsMobile(window.matchMedia("(max-width: 560px)").matches)
     if (location.pathname == "/" || location.pathname == "/signin") {
@@ -28,20 +28,19 @@ function App() {
   return (
     <>
       {isLogin ? location.pathname == "/profile" ? isMobile ? null : <Header/> : <Header/> : null  }
-
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='/courses' element={<Home port={PORT}/>}/>
         <Route path='/profile' element={<Profile port={PORT}/>}/>
+        <Route path='/rate' element={<LiderBord/>}/>
         <Route path='/course/:id' element={<OpenCourse/>}/>
         <Route path='/lesson/:id/:id' element={<Lesson/>}/>
+        <Route path='/doc' element={<Doc/>}/>
 
+        <Route path='/admin' element={<Admin/>} />
       </Routes>
-
-
       {isLogin ?  <Footer/> : location.pathname == "/profile" ? <Footer/> : null}
-
     </>
   )
 }

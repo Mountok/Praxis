@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../header/header.css"
 
 import { IoCopy } from "react-icons/io5";
@@ -6,8 +6,11 @@ import { IoDice } from "react-icons/io5";
 import { IoFlashSharp } from "react-icons/io5";
 import { IoPerson } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { RiAdminLine } from "react-icons/ri";
 
 const Footer = () => {
+    const [isAdmin,setIsAdmin] = useState(localStorage.getItem("PRAXIS_USER_ID") == "2" ? true : false)
+
     const location = useLocation()
 
     return (
@@ -36,6 +39,12 @@ const Footer = () => {
                     <IoPerson />
                     Профиль
                 </Link>
+                {
+                    isAdmin ? <Link to='/admin' className={location.pathname == "/admin" ? "nav_links active" : "nav_links"}>
+                        <RiAdminLine/>
+                        Администрирование
+                        </Link> : null
+                }
             </nav>
         </footer>
     )

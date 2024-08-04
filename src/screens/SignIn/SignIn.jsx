@@ -30,7 +30,7 @@ const SignIn = () => {
       create_date: ""
     }).then(function (response) {
       console.log(response);
-      localStorage.setItem("LEARN_GGKIT_USER_ID", response.data.data)
+      localStorage.setItem("PRAXIS_USER_ID", response.data.data)
     }).catch(function (error) {
       console.log(error);
       redirect = false
@@ -40,17 +40,23 @@ const SignIn = () => {
     redirect ? navigate("/courses") : null;
   }
 
-
   return (
     <section className="login">
-
       <h2>Регистрация</h2>
-
       <p>Почта пользователя</p>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} name="email" type="text" placeholder="введите свою почту" />
+      <input 
+      value={email} 
+      onChange={(e) => setEmail(e.target.value)} 
+      name="email" 
+      type="text" 
+      placeholder="введите свою почту" />
       <p>Пароль</p>
-      <input value={password} onChange={(e) => setPassword(e.target.value)} name="password" type="password" placeholder="введите свой пароль" />
-
+      <input 
+      value={password} 
+      onChange={(e) => setPassword(e.target.value)} 
+      name="password" 
+      type="password" 
+      placeholder="введите свой пароль" />
 
       <button onClick={(e)=>handleSubmit(e)}>Создать аккаунт</button>
 

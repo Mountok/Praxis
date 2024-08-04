@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet'
 const Courses = ({port}) => {
 
   const [subjectsState,setSubjectsState] = useState([])
-
   useEffect(()=>{
     const apiUrl = '/api/subject';
     axios.get(apiUrl).then((resp) => {
@@ -14,7 +13,6 @@ const Courses = ({port}) => {
       setSubjectsState(allSubjects);
     });
   },[])
-
 
   return (
     <main className='main courses'>
@@ -29,9 +27,6 @@ const Courses = ({port}) => {
         title={el.title}
         subtitle={el.description}/>
       ))}
-      <CourseBlock id={1} image="" title="Python" />
-      <CourseBlock id={1} image="" title="С#" />
-      <CourseBlock id={1} image="" title="Кибербезопастность" />
      
     </main>
   )

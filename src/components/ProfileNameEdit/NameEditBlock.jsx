@@ -7,7 +7,7 @@ import { useState } from 'react';
 import axios from "axios"
 import { useEffect } from 'react';
 const NameEditBlock = ({editName,setNameEdit}) => {
-    const [userId,setUserId] = useState(localStorage.getItem("LEARN_GGKIT_USER_ID"))
+    const [userId,setUserId] = useState(localStorage.getItem("PRAXIS_USER_ID"))
     const [newName, setNewName] = useState("")
     const [isClose,setIsClose] = useState(!editName)
 
